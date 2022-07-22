@@ -7,3 +7,11 @@ services:
         dockerfile: Dockerfile
       ports:
         - 9999:80
+    db:
+      image: mysql:8.0.29
+      environment:
+        - MYSQL_RANDOM_ROOT_PASSWORD=yes
+        - MYSQL_DATABASE=demo
+        - MYSQL_USER=user
+        - MYSQL_PASSWORD=pass
+            
