@@ -17,6 +17,11 @@ services:
         - MYSQL_DATABASE=demo
         - MYSQL_USER=user
         - MYSQL_PASSWORD=pass
+      healthcheck:
+        test: ["CMD-SHELL", "mysqladmin ping -h localhost -u $$MYSQL_USER --password=$$MYSQL_PASSWORD"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
     db2:
       image: postgres:10.14
       environment:
